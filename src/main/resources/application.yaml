@@ -2,3 +2,8 @@ spring:
   data:
     mongodb:
       uri: mongodb://sds:sds@localhost:27017/mysds?authSource=admin
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:18080/realms/sds
