@@ -20,7 +20,7 @@ repositories {
 }
 
 docker {
-	name "app"
+	name "sds"
 	dockerfile file('config/docker/Dockerfile')
 	copySpec.from(bootJar).rename(".*","app.jar")
 	buildArgs(['JAR_FILE': "app.jar"])
