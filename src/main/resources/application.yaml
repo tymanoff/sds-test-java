@@ -1,9 +1,4 @@
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: update
-  datasource:
-    url: jdbc:postgresql://localhost:5432/mysds
-    username: sds
-    password: sds
-    driver-class-name: org.postgresql.Driver
+  data:
+    mongodb:
+      uri: mongodb://sds:sds@localhost:27017/mysds?authSource=admin

@@ -1,11 +1,12 @@
-package plus.irbis.news.service;
+package sds.service;
 
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
-import plus.irbis.news.dto.StudentDto;
-import plus.irbis.news.exception.CustomException;
-import plus.irbis.news.mapper.StudentMapper;
-import plus.irbis.news.repository.StudentRepository;
+import sds.dto.StudentDto;
+import sds.exception.CustomException;
+import sds.mapper.StudentMapper;
+import sds.repository.StudentRepository;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class StudentService {
                 .toList();
     }
 
-    public StudentDto createOrChangeStudent(Long id, StudentDto studentDto) {
+    public StudentDto createOrChangeStudent(String id, StudentDto studentDto) {
         if (id == null) {
             throw new CustomException("Id is null");
         }
@@ -42,7 +43,7 @@ public class StudentService {
     }
 
 
-    public void deleteStudent(Long id) {
+    public void deleteStudent(String id) {
         if (studentRepository.existsById(id)) {
             studentRepository.deleteById(id);
         } else {

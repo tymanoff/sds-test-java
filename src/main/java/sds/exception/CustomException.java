@@ -1,4 +1,4 @@
-package plus.irbis.news.exception;
+package sds.exception;
 
 public class CustomException extends RuntimeException {
     public CustomException(String message) {

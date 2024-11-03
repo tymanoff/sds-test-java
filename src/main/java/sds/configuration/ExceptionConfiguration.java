@@ -1,10 +1,10 @@
-package plus.irbis.news.configuration;
+package sds.configuration;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import plus.irbis.news.exception.CustomException;
+import sds.exception.CustomException;
 
 @ControllerAdvice
 public class ExceptionConfiguration {

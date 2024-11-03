@@ -1,9 +1,9 @@
-package plus.irbis.news.mapper;
+package sds.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import plus.irbis.news.dto.StudentDto;
-import plus.irbis.news.entity.Student;
+import sds.dto.StudentDto;
+import sds.entity.Student;
 
 @Mapper
 public interface StudentMapper {
