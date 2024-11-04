@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class Student {
 
     @Id
-    private String id;
+    private ObjectId id;
 
     private String firstName;
 
@@ -29,4 +29,12 @@ public class Student {
 
     @Field("created_date")
     private LocalDateTime createdDate = LocalDateTime.now();
+
+    public String getId() {
+        return id != null ? id.toHexString() : null;
+    }
+
+    public void setId(String id) {
+        if (id != null) this.id = new ObjectId(id);
+    }
 }

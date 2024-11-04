@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 import sds.dto.StudentDto;
+import sds.entity.Student;
 import sds.exception.CustomException;
 import sds.mapper.StudentMapper;
 import sds.repository.StudentRepository;
@@ -28,12 +29,14 @@ public class StudentService {
             throw new CustomException("Id is null");
         }
 
-        if (!studentRepository.existsById(id)) {
+        if (!studentRepository.existsById(new ObjectId(id))) {
             throw new CustomException("Student with id " + id + " not found");
         }
-        studentDto.setId(id);
+
+        Student convert = StudentMapper.MAPPER.convert(studentDto);
+        convert.setId(id);
         return StudentMapper.MAPPER
-                .convert(studentRepository.save(StudentMapper.MAPPER.convert(studentDto)));
+                .convert(studentRepository.save(convert));
 
     }
 
@@ -44,8 +47,9 @@ public class StudentService {
 
 
     public void deleteStudent(String id) {
-        if (studentRepository.existsById(id)) {
-            studentRepository.deleteById(id);
+        ObjectId objectId = new ObjectId(id);
+        if (studentRepository.existsById(objectId)) {
+            studentRepository.deleteById(objectId);
         } else {
             throw new CustomException("Student with id " + id + " not found");
         }
