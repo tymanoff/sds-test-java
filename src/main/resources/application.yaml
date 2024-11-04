@@ -6,4 +6,4 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:18080/realms/sds
+          issuer-uri: http://keycloak:8080/realms/sds
